@@ -1,0 +1,80 @@
+<img src="assets/images/middle_book.png" class="w-full">
+
+<h2 class="text-center mt-5">CATÁLOGO</h2>
+
+<app-separador></app-separador>
+
+<div class="row m-0">
+  <div class="col-md-4">
+    <div class="pos-f-t">
+      <nav class="navbar">
+        <button type="button" class="btn_menu" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <img src="assets/images/icons/menu.png" style="width: 100px;"><span class="span_menu">MENÚ</span>
+        </button>
+      </nav>
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-beige2 p-4">
+          <a class="pointer" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" (click)="searchClassification('all', 'Todos')"><h5 class="text-bold">Todos</h5></a>
+          <hr>
+          <a class="pointer" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" (click)="searchClassification('novelty', 'Lo nuevo')"><h5 class="text-bold">Lo nuevo</h5></a>
+          <hr>
+          <a class="pointer" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" (click)="searchClassification('amate', 'Colección Amateditorial')"><h5 class="text-bold">Colección Amateditorial</h5></a>
+          <hr>
+          <br>
+          <a class="pointer" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" *ngFor="let category of categories_amate" (click)="searchCategory(category.id, category.name)"><h5 class="text-bold">{{category.name}}</h5></a>
+
+          <a class="pointer" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" (click)="searchClassification('independent', 'Autores Independientes')"><h5 class="text-bold mt-5">Autores Independientes</h5></a>
+          <hr>
+          <br>
+          <a class="pointer" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" *ngFor="let category of categories_independent" (click)="searchCategory(category.id, category.name)"><h5 class="text-bold">{{category.name}}</h5></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div style="padding-right: 90px" class="text-right">
+      <form [formGroup]="searchForm" novalidate (ngSubmit)="searchGo()">
+        <input type="text" class="input_search" placeholder="Buscar..." formControlName="search" [(ngModel)]="search">
+        <button class="btn_search" type="submit" [disabled]="searchForm.invalid"><i class="bi bi-search"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="novelties.length > 0">
+  <div style="padding-left: 90px;">
+    <h2 class="mt-5">LO NUEVO</h2>
+  </div>
+  <app-slider-book [books]="novelties" [id]="'noveltiesCorousel'"></app-slider-book>
+</div>
+
+<div *ngIf="amate.length > 0">
+  <div style="padding-left: 90px;">
+    <h2 class="mt-5">COLECCIÓN AMATEDITORIAL</h2>
+  </div>
+  <app-slider-book [books]="amate" [id]="'amateCorousel'"></app-slider-book>
+</div>
+
+<div *ngIf="independent.length > 0">
+  <div style="padding-left: 90px;">
+    <h2 class="mt-5">COLECCIÓN INDEPENDIENTE</h2>
+  </div>
+  <app-slider-book [books]="independent" [id]="'independentCorousel'"></app-slider-book>
+</div>
+
+<div *ngIf="outStanding.length > 0">
+  <div style="padding-left: 90px;">
+    <h2 class="mt-5">DESTACADOS</h2>
+  </div>
+  <app-slider-book [books]="outStanding" [id]="'outStandingCorousel'"></app-slider-book>
+</div>
+
+<div class="px-5 mb-5" *ngIf="searchAll.length > 0">
+  <h2 class="mt-5 ml-3">RESULTADO DE LA BUSQUEDA</h2>
+  <div class="row">
+    <div class="col-6 col-sm-4 col-md-2" *ngFor="let book of searchAll">
+      <app-book [book]="book"></app-book>
+    </div>
+  </div>
+</div>
+

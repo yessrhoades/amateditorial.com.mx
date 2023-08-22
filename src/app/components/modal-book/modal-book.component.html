@@ -1,0 +1,70 @@
+<div class="container my-5 pt-5">
+  <div class="modal-body" *ngIf="book !== undefined">
+    <div class="row">
+    <!--<div class="col-12 pt-2 pb-3">
+        <button type="button" class="close" style="opacity: 100;" (click)="close()">
+          <img src="assets/images/icons/close.png" alt="" style="width: 50px;">
+        </button>
+      </div>-->
+      <div class="col-md-5">
+        <img src="{{baseUrl+baseStorageUrl+book.image}}" class="w-full">
+        <h1 class="text-danger text-center text-black">${{book.price | number:'1.0-0'}} MXN</h1>
+
+        <div class="number-container">
+          <div class="text-black btn-minor" (click)="menos()">-</div>
+          <div class="inline-block text-black">
+            <input type="number" value="{{quantity}}" class="input-number" id="quantity_" (input)="inputQuantity($event)">
+          </div>
+          <div class="text-black btn-major" (click)="mas()">+</div>
+        </div>
+
+        <div class="col-12 text-center pt-4">
+          <div class="btn btn-light" (click)="addCard(book.id)" style="font-size: 30px;">
+            <i class="bi bi-cart4"></i> Agregar
+          </div>
+        </div>
+
+      </div>
+      <div class="col-md-7">
+        <h3 class="text-success text-american-bold">{{book.name}}</h3>
+          <h4>{{book.author}}</h4>
+        <h6 class="text-black"><span class="text-success">ISBN:</span> {{book.isbn}}</h6>
+        <h5 class="text-black text-success">Sinopsis:</h5>
+        <p class="text-bold text-justify">{{book.description}}</p>
+
+        <div class="row text-center">
+          <div class="col-3">
+            <img src="assets/images/icons/format.png" class="w-full">
+            <p class="text-black">Formato</p>
+            <p>{{book.format}}</p>
+          </div>
+          <div class="col-3">
+            <img src="assets/images/icons/language.png" class="w-full">
+            <p class="text-black">Idioma</p>
+            <p>{{book.language}}</p>
+          </div>
+          <div class="col-3">
+            <img src="assets/images/icons/pages.png" class="w-full">
+            <p class="text-black">Páginas</p>
+            <p>{{book.pages}}</p>
+          </div>
+          <div class="col-3">
+            <img src="assets/images/icons/year.png" class="w-full">
+            <p class="text-black">Año</p>
+            <p>{{book.year}}</p>
+          </div>
+        </div>
+
+        <p class="text-bold text-30">
+          Dimensiones:<br>
+          {{book.size}}
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="text-center" *ngIf="book === undefined">
+    <h1>El producto especificado no existe</h1>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<img src="assets/images/middle_book.png" class="w-full">
+
+<div class="container">
+
+  <h2 class="text-center mt-5">SOLICITA TU COTIZACIÓN PERSONALIZADA</h2>
+
+  <app-separador></app-separador>
+
+  <p class="text-30">
+    Contacta con uno de nuestros asesores editoriales para solicitar sin compromiso una cotización personalizada para publicar tu libro. Indícanos la cantidad de palabras (<a href="https://support.microsoft.com/es-es/office/mostrar-recuento-de-palabras-3c9e6a11-a04d-43b4-977c-563a0e0d5da3#:~:text=Para%20contar%20el%20n%C3%BAmero%20de,la%20Web%20palabras%20mientras%20escribe." target="_blank">ver cómo</a>) o páginas.
+    También puedes enviarnos el archivo en formato .doc o .docx (Word) o similares. Si tienes dudas de como subirlo envía un correo a impresion.amate@gmail.com, tu archivo será manejado de manera confidencial por nuestro equipo.
+  </p>
+
+  <div class="py-3"></div>
+  <div class="row my-5">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <form novalidate (ngSubmit)="post()" [formGroup]="publishForm">
+        <img src="assets/images/globo_personalizada.png" class="globo_p">
+        <div class="row bg-success-light pt-5">
+          <div class="py-3"></div>
+          <div class="col-md-4 my-1 param-name"><label for="" class="text-black text-30">Nombre de contacto:</label></div>
+          <div class="col-md-8 my-1"><input type="text" class="form-control" formControlName="name" [(ngModel)]="name"></div>
+
+          <div class="col-md-4 my-1 param-name"><label for="" class="text-black text-30">Teléfono:</label></div>
+          <div class="col-md-8 my-1"><input type="text" class="form-control" formControlName="telephone" [(ngModel)]="telephone"></div>
+
+          <div class="col-md-4 my-1 param-name"><label for="" class="text-black text-30">Correo:</label></div>
+          <div class="col-md-8 my-1"><input type="text" class="form-control" formControlName="email" [(ngModel)]="email"></div>
+
+          <div class="col-md-4 my-1 param-name"><label for="" class="text-black text-30">Ciudad, estado, país:</label></div>
+          <div class="col-md-8 my-1"><input type="text" class="form-control" formControlName="address" [(ngModel)]="address"></div>
+
+          <div class="col-md-4 my-1 param-name"><label for="" class="text-black text-30">Nombre de la obra:</label></div>
+          <div class="col-md-8 my-1"><input type="text" class="form-control" formControlName="work" [(ngModel)]="work"></div>
+
+          <div class="col-md-4 my-1 param-name"><label for="" class="text-black text-30">Género Literario:</label></div>
+          <div class="col-md-8 my-1"><input type="text" class="form-control" formControlName="literary_genre" [(ngModel)]="literary_genre"></div>
+
+          <div class="col-md-4 my-1 param-name"><label for="" class="text-black text-30">Número de ejemplares a producir:</label></div>
+          <div class="col-md-8 my-1"><input type="number" class="form-control" formControlName="number_books" [(ngModel)]="number_books"></div>
+
+          <div class="col-md-4 my-1 param-name"><label for="" class="text-black text-30">Número de palabras:</label></div>
+          <div class="col-md-8 my-1"><input type="number" class="form-control" formControlName="number_words" [(ngModel)]="number_words"></div>
+
+          <div class="col-md-4 my-1 param-name"><label for="" class="text-black text-30">Número de páginas:</label></div>
+          <div class="col-md-8 my-1"><input type="number" class="form-control" formControlName="number_pages" [(ngModel)]="number_pages"></div>
+
+          <div class="col-md-4 my-1 param-name"><label for="" class="text-black text-30">Seleccionar archivo:</label></div>
+          <div class="col-md-8 my-1"><input type="file" class="form-control" accept="application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword" (change)="selectFile($event)" value="{{selectedFile}}"></div>
+
+          <div class="col-md-4 my-1 param-name"><label for="" class="text-black text-30">Comentarios:</label></div>
+          <div class="col-md-8 my-1">
+            <textarea cols="30" rows="5" class="form-control my-2" placeholder="Mensaje:" formControlName="message" [(ngModel)]="message"></textarea>
+          </div>
+        </div>
+        <div class="text-right">
+          <button type="submit" class="btn btn-success mt-2" [disabled]="publishForm.invalid"><h2 class="mt-2 text-30">Enviar</h2></button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+</div>

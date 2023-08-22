@@ -1,0 +1,136 @@
+<img src="assets/images/slide1.png" class="w-full">
+
+<div class="container pt-5">
+
+  <h1 class="text-success text-american-medium mb-4">Contacto</h1>
+  <div class="row">
+    <div class="col-md-8 p-5 bg-success-light">
+      <form novalidate (ngSubmit)="contact_send()" [formGroup]="contactForm">
+        <input type="text" class="form-control my-2" placeholder="Nombre:" formControlName="name" [(ngModel)]="name">
+        <div class="row my-2">
+          <div class="col-6">
+            <input type="text" class="form-control" placeholder="Teléfono:" formControlName="telephone" [(ngModel)]="telephone">
+          </div>
+          <div class="col-6">
+            <input type="text" class="form-control" placeholder="Ciudad:" formControlName="city" [(ngModel)]="city">
+          </div>
+        </div>
+        <input type="text" class="form-control my-2" placeholder="Email:" formControlName="email" [(ngModel)]="email">
+        <input type="text" class="form-control my-2" placeholder="Empresa:" formControlName="company" [(ngModel)]="company">
+        <input type="text" class="form-control my-2" placeholder="Asunto:" formControlName="subject" [(ngModel)]="subject">
+        <textarea name="" id="" cols="30" rows="10" class="form-control my-2" placeholder="Mensaje:" formControlName="message" [(ngModel)]="message"></textarea>
+        <div class="text-right">
+          <button type="submit" class="btn btn-success" [disabled]="contactForm.invalid"><h2 class="text-30 pt-2">Enviar</h2></button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-4">
+
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10">
+          <p class="text-30 text-bold">
+            Amate Editorial México S.A.S.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2 text-right">
+          <i class="bi bi-geo-alt-fill text-30 text-success"></i>
+        </div>
+        <div class="col-10">
+          <p class="text-30">
+            Prisciliano Sánchez No. 612, Centro, Guadalajara, Jalisco. C. P. 44100. México.
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2 text-right">
+          <i class="bi bi-telephone-fill text-30 text-success"></i>
+        </div>
+        <div class="col-10">
+          <p class="text-30">
+            (33) 3612 0751
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2 text-right">
+          <i class="bi bi-whatsapp text-30 text-success"></i>
+        </div>
+        <div class="col-10">
+          <p class="text-30">
+            (33) 1311 3550
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2 text-right">
+          <i class="bi bi-whatsapp text-30 text-success"></i>
+        </div>
+        <div class="col-10">
+          <p class="text-30">
+            (33) 3502 9731
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-10">
+          <p class="text-30 text-bold m-0">
+            Horario:<br> Lunes a viernes
+          </p>
+          <p class="text-30">
+            de 8:30 a 18:00 hrs.
+          </p>
+        </div>
+      </div>
+
+      <div class="w-full">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4857.789485562542!2d-103.35546476520679!3d20.673322263158767!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9bcf277b15c9158a!2sAmateditorial%20SA%20de%20CV!5e0!3m2!1ses!2smx!4v1657683034717!5m2!1ses!2smx" style="border:0;width: 100%;height: 400px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="text-center py-5">
+    <h1 class="text-success text-american-medium">Quejas y sugerencias:</h1>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 bg-success p-4">
+        <p class="text-30 text-white">
+          En Amateditorial nos gusta escucharte. Envíanos tus quejas y sugerencias para mejorar la calidad de nuestros productos y la atención que te brindamos.
+        </p>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+    <button type="button" class="btn btn-beige mt-2" (click)="newSuggestion(modal_suggestion)"><h2 class="text-30 text-success pt-2">Enviar</h2></button>
+  </div>
+
+</div>
+
+
+<ng-template #modal_suggestion>
+  <div class="modal-header bg-success-light">
+    <h3 class="modal-title pull-left">Quejas y sugerencias</h3>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body bg-success-light">
+    <form [formGroup]="suggestionForm" novalidate (ngSubmit)="suggestion_send()">
+      <input type="text" class="form-control my-2" placeholder="Nombre:" formControlName="suggestion_name" [(ngModel)]="suggestion_name">
+      <input type="text" class="form-control my-2" placeholder="Email:" formControlName="suggestion_email" [(ngModel)]="suggestion_email">
+      <input type="text" class="form-control my-2" placeholder="Asunto:" formControlName="suggestion_subject" [(ngModel)]="suggestion_subject">
+      <textarea name="" id="" cols="30" rows="10" class="form-control my-2" placeholder="Mensaje:" formControlName="suggestion_message" [(ngModel)]="suggestion_message"></textarea>
+      <div class="text-right">
+        <button type="submit" class="btn btn-success" [disabled]="suggestionForm.invalid"><h2 class="text-30 pt-2">Enviar</h2></button>
+      </div>
+    </form>
+  </div>
+</ng-template>

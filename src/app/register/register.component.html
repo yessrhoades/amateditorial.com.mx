@@ -1,0 +1,33 @@
+<img src="assets/images/middle_book.png" class="w-full mt-100">
+
+<h1 class="text-success text-american-bold text-center my-5">Crear una cuenta</h1>
+
+<div class="row m-0">
+  <div class="col-md-3"></div>
+  <div class="col-md-6 bg-success-light p-5 mb-5 text-center">
+    <form novalidate [formGroup]="registerForm" (ngSubmit)="register()">
+      <input type="text" class="form-control mb-3" placeholder="Nombre" formControlName="name" [(ngModel)]="name">
+      <div class="row">
+        <div class="col-6">
+          <input type="text" class="form-control mb-3" placeholder="Apellido paterno" formControlName="lastname1" [(ngModel)]="lastname1">
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control mb-3" placeholder="Apellido materno" formControlName="lastname2" [(ngModel)]="lastname2">
+        </div>
+      </div>
+      <input type="email" class="form-control mb-3" placeholder="Email" formControlName="email" [(ngModel)]="email">
+      <div class="row">
+        <div class="col-6">
+          <input type="password" class="form-control mb-3" placeholder="Contraseña" formControlName="password" [(ngModel)]="password">
+        </div>
+        <div class="col-6">
+          <input type="password" class="form-control mb-3" placeholder="Confirmar contraseña" formControlName="confirm_password" [(ngModel)]="confirm_password">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-success mb-2" [disabled]="registerForm.invalid">
+        <h4 class="m-0">Registrar</h4>
+      </button>
+    </form>
+  </div>
+  <div class="col-md-3"></div>
+</div>

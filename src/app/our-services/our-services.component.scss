@@ -1,0 +1,50 @@
+.container-services{
+  margin-left: 12%;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.display {
+
+}
+
+.objetfit > img{
+	width: 100%;
+	height: 488px;
+	object-fit: cover;
+}
+
+.section-padding{
+  padding-top: 120px;
+}
+
+@media (max-width: 766px) {
+  .container-services{
+    margin-left: 0%;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 80px;
+    padding-bottom: 24px;
+  }
+
+  .display {
+
+  }
+
+  .circle{
+    border-radius: 100%;
+    width: 150px;
+    padding-left: 7px;
+    padding-right: 7px;
+    position: relative;
+    margin-left: 50%;
+    left: -75px;
+    margin-top: -140px;
+  }
+
+  .section-padding{
+    padding-top: 210px;
+  }
+}

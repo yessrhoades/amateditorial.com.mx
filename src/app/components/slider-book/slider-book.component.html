@@ -1,0 +1,37 @@
+    <div id="{{id}}" class="carousel slide my-4" data-ride="carousel">
+      <div class="carousel-inner px-5">
+
+        <div class="px-4 carousel-item active">
+          <div class="w-full">
+            <div class="row">
+              <div [class]="col" *ngFor="let book of arrActive">
+                <app-book [book]="book"></app-book>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-4 carousel-item" *ngFor="let array of arr">
+          <div class="w-full">
+            <div class="row">
+              <div [class]="col" *ngFor="let book of array">
+                <app-book [book]="book"></app-book>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" style="width: 80px;" href="#{{id}}" role="button" data-slide="prev">
+        <i class="bi bi-chevron-compact-left text-success" style="font-size: 50px;"></i>
+      </a>
+
+      <a class="carousel-control-next" style="width: 80px;" href="#{{id}}" role="button" data-slide="next">
+        <i class="bi bi-chevron-compact-right text-success" style="font-size: 50px;"></i>
+      </a>
+
+    </div>
+
+
+

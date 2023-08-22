@@ -1,0 +1,39 @@
+
+input[type="radio"]:checked + label:before {
+	border-color: var(--verde-amate);
+}
+
+input[type="radio"]:checked + label:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 8px solid var(--verde-amate);
+  float: left;
+  margin-left: -1.8em;
+  margin-top: .8em;
+  border-radius: 100%;
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+input[type="radio"] + label {
+  font-weight: bold;
+  line-height: 3em;
+  color: var(--grey);
+}
+
+/*input[type="radio"]:checked + label {
+  color: var(--verde-amate);
+}*/
+
+input[type="radio"] + label:before {
+  content: "";
+  width: 26px;
+  height: 26px;
+  float: left;
+  margin: 0.5em 0.5em 0 0;
+  border: 2px solid var(--verde-amate);
+  border-radius: 100%;
+}

@@ -1,0 +1,14 @@
+<div class="link" (click)="show(book.id)">
+  <img [src]="baseUrl+baseStorageUrl+book.image" class="w-full">
+</div>
+<div class="text-center">
+  <div class="link" (click)="show(book.id)">
+    <h5 class="text-success text-bold">{{book.name}}</h5>
+    <b>{{book.author}}</b>
+    <br>
+    <h4 class="text-danger">${{book.price | number:'1.0-0'}} MXN</h4>
+  </div>
+  <div class="btn btn-light" (click)="addCard(book.id)">
+    <i class="bi bi-cart4 text-30"></i> Agregar
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<footer class="bg-success text-white footer_sheet">
+  <div class="dot_footer"></div>
+  <div class="container py-3">
+    <h1 class="text-american-medium">Contacto</h1>
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <a href="telephone:3336120751" class="text-white">
+          <i class="bi bi-telephone-fill text-30"></i> 01 (33) 3612 0751
+        </a>
+
+        <a href="https://www.facebook.com/Amateeditorial/" target="_blank">
+          <i class="bi bi-facebook text-30 text-white" style="margin-left: 30px !important;"></i>
+        </a>
+        <a href="https://www.instagram.com/editorialamate/" target="_blank">
+          <i class="bi bi-instagram text-30 text-white" style="margin: 0px 15px 0px 15px !important;"></i>
+        </a>
+        <a href="https://twitter.com/EditorialAmate" target="_blank">
+          <i class="bi bi-twitter text-30 text-white"></i>
+        </a>
+
+        <br>
+        <a href="https://api.whatsapp.com/send?phone=523313113550&text=" target="_blank" class="text-white"><i class="bi bi-whatsapp text-30"></i> 33 1311 3550</a>
+        <br>
+        <a href="mailto:amateditorial@gmail.com" class="text-white"><i class="bi bi-envelope text-30"></i> amateditorial@gmail.com</a>
+        <br>
+        <a class="text-white"><i class="bi bi-geo-alt-fill text-30"></i> Prisciliano Sánchez 612, Centro, Guadalajara, Jalisco. C.P. 44100, México.</a>
+      </div>
+      <div class="col-md-4 mb-3">
+        <a routerLink="/catalogo" class="text-white">Catálogo</a>
+        <br>
+        <a routerLink="/services" class="text-white">Servicios</a>
+        <br>
+        <a routerLink="/publish_book" class="text-white">Publica tu libro</a>
+        <br>
+        <a routerLink="/contact" class="text-white">Contacto</a>
+        <br>
+        <a routerLink="/questions" class="text-white">Preguntas frecuentes</a>
+        <br>
+        <a routerLink="/blog" class="text-white">Blog</a>
+      </div>
+      <div class="col-md-4">
+        <b>Suscríbete a nuestro Newsletter</b><br>
+        <form novalidate (ngSubmit)="successForm()" [formGroup]="subscriberForm">
+          <div class="row mr-3">
+            <div class="col-10">
+              <input type="text" class="form-control" placeholder="Email" formControlName="email" [(ngModel)]="email">
+            </div>
+            <div class="col-2">
+              <button type="submit" class="btn btn-warning" [disabled]="subscriberForm.invalid">Enviar</button>
+            </div>
+          </div>
+        </form>
+        <br>
+        <p>
+          Todos los derechos reservados Amate Editorial de México
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

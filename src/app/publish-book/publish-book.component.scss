@@ -1,0 +1,21 @@
+.globo{
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+.globo_p{
+  width: 350px;
+  position: absolute;
+  left: 0;
+  top: -80px;
+}
+
+.param-name {
+  text-align: right;
+}
+
+@media (max-width : 766px) {
+  .param-name {
+    text-align: left;
+  }
+}

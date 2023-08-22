@@ -1,0 +1,167 @@
+<img src="assets/images/middle_book.png" class="w-full">
+
+<div class="container pt-5">
+
+  <form novalidate (ngSubmit)="successForm()" [formGroup]="paymentForm">
+
+  <div class="row">
+
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h1 class="text-success text-american-medium mb-4">Datos de envío</h1>
+    </div>
+    <div class="col-md-2"></div>
+
+    <div class="col-md-2"></div>
+    <div class="col-md-8 p-5 bg-success-light">
+      <input type="text" class="form-control my-2" placeholder="Email:" formControlName="email" [(ngModel)]="email" required>
+      <input type="text" class="form-control my-2" placeholder="Nombre:" formControlName="name" [(ngModel)]="name" required>
+      <input type="text" class="form-control my-2" placeholder="Apellidos:" formControlName="lastname" [(ngModel)]="lastname" required>
+      <div class="row my-2">
+        <div class="col-6">
+          <input type="text" class="form-control" placeholder="Teléfono:" formControlName="telephone" [(ngModel)]="telephone" required>
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" placeholder="Ciudad:" formControlName="city" [(ngModel)]="city" required>
+        </div>
+      </div>
+      <input type="text" class="form-control my-2" placeholder="Calle:" formControlName="street" [(ngModel)]="street" required>
+      <input type="text" class="form-control my-2" placeholder="Colonia:" formControlName="colony" [(ngModel)]="colony" required>
+      <div class="row my-2">
+        <div class="col-6">
+          <input type="text" class="form-control" placeholder="Estado:" formControlName="state" [(ngModel)]="state" required>
+        </div>
+        <div class="col-6">
+          <select class="form-control" formControlName="country" [(ngModel)]="country" (change)="addEnvioFromCountry()" required>
+            <option *ngFor="let country of countries" value="{{country.code}}">{{country.name}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h1 class="text-success text-american-medium my-4">Método de envío</h1>
+    </div>
+    <div class="col-md-2"></div>
+
+    <div class="col-md-2"></div>
+    <div class="col-md-8 px-5 py-3 bg-success-light">
+      <input type="radio" id="radio1" [value]="1" formControlName="shipping_method" [(ngModel)]="shipping_method" (change)="addEnvio(1)" checked>
+      <label for="radio1">
+        Envío estándar
+      </label>
+      <!--<br>
+      <input type="radio" id="radio3" [value]="2" formControlName="shipping_method" [(ngModel)]="shipping_method" (change)="addEnvio(2)">
+      <label for="radio3">Recoger en Amateditorial</label>-->
+    </div>
+    <div class="col-md-2"></div>
+
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h3 class="text-success mt-4">Subtotal: <span>${{subtotal}} MXN</span></h3>
+      <h3 class="text-success mt-4">Envio: <span>${{envio}} MXN</span></h3>
+      <h3 class="text-success mt-4">Total: <span>${{total}} MXN</span></h3>
+    </div>
+    <div class="col-md-2"></div>
+
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h1 class="text-success text-american-medium my-4">Forma de pago</h1>
+    </div>
+    <div class="col-md-2"></div>
+
+    <div class="col-md-2"></div>
+    <div class="col-md-8 px-5 py-3 bg-success-light">
+
+      <div id="accordion">
+        <div class="card bg-success-light">
+          <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+              <button class="btn btn-link text-grey" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Tarjeta de débito o crédito
+                <span>
+                  <img src="assets/images/icons/card/VISA.png" alt="" class="mr-1">
+                  <img src="assets/images/icons/card/MasterCard.png" alt="" class="mr-1">
+                  <img src="assets/images/icons/card/American_Express.png" alt="" class="mr-1">
+                </span>
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+
+              <form novalidate (ngSubmit)="createToken()" [formGroup]="stripeCard">
+                <input type="text" formControlName="name" placeholder="Titular de la tarjeta:" class="form-control mb-3">
+                <ngx-stripe-card [options]="cardOptions" [elementsOptions]="elementsOptions"></ngx-stripe-card>
+                <button type="submit" class="btn btn-sm btn-success mt-3" [disabled]="paymentForm.invalid || stripeCard.invalid || btnDisabled">{{btnCartMessage}}</button>
+              </form>
+
+            </div>
+          </div>
+        </div>
+        <div class="card bg-success-light">
+          <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed text-grey" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Transferencia
+              </button>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+
+              <b>Instrucciones:</b><br><br>
+              Banco: SANTANDER<br>
+              Cuenta: 65-50420306-8<br>
+              Clabe: 014320655042030683<br>
+              Nombre: AMATEDITORIAL SA DE CV<br>
+              Cuando realices la transferencia por favor adjunta tu comprabante de pago al correo electrónico promocion.amateditorial@gmail.com ó envialo al teléfono (33) 1311 3550 <br>
+              <button class="btn btn-info"[disabled]="paymentForm.invalid || btnDisabled" (click)="chargeTransfer()">{{btnTransferMessage}}</button><br>
+            </div>
+          </div>
+        </div>
+        <div class="card bg-success-light">
+          <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed text-grey" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <img src="assets/images/icons/card/oxxo.png" style="width: 60px;" alt=""> (solo México)
+              </button>
+            </h5>
+          </div>
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+
+              <b>Instrucciones:</b><br><br>
+              1. <button class="btn btn-info"[disabled]="paymentForm.invalid || btnDisabled" (click)="chargeOxxo()">{{btnOxxoMessage}}</button><br>
+              2. Acude a tu tienda OXXO más cercana.<br>
+              3. Muestra el número de referencia al cajero y realiza el pago.<br>
+              4. Envíanos el comprobante al (33) 1311 3550  o al correo promocion.amateditorial@gmail.com<br>
+              <br>
+              <b>Recuerda <u>cerrar</u> la pantalla del recibo oxxo para que se registre tu compra.</b>
+              <br>
+              <br>
+              ¿Tienes dudas? Contáctanos, con gusto te ayudamos.
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-2"></div>
+
+    <div class="col-md-2"></div>
+    <div class="col-md-8 py-3 my-4 text-center">
+
+    </div>
+    <div class="col-md-2"></div>
+
+  </div>
+
+  </form>
+
+</div>
+

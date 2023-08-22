@@ -1,0 +1,238 @@
+:root{
+  --verde-amate: #5e7d23;
+  --verde-amate-light: #DBE4AD;
+  --grey: #606060;
+  --beige: #F5F1EC;
+  --beige2: #EDE7DF;
+  --rojo-amate: darkred;
+  --bg-form-control: rgb(231, 237, 201);
+}
+
+
+@font-face {
+  font-family: 'Gotham Light';
+  src: local("Gotham Light"),
+  local("Gotham-Light"),
+  url("assets/fonts/GOTHAM/Gotham-Light.otf");
+}
+
+@font-face {
+  font-family: 'Gotham Bold';
+  src: local("Gotham Bold"),
+  local("Gotham-Bold"),
+  url("assets/fonts/GOTHAM/Gotham-Medium.otf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Gotham Italic';
+  src: local("Gotham Italic"),
+  local("Gotham-Italic"),
+  url("assets/fonts/GOTHAM/Gotham-XLightItalic.otf");
+}
+
+@font-face {
+  font-family: 'Gotham Italic bold';
+  src: local("Gotham Italic bold"),
+  local("Gotham-Italic-bold"),
+  url("assets/fonts/GOTHAM/Gotham-BookItalic.otf");
+}
+
+@font-face {
+  font-family: 'Gotham Black';
+  src: local("Gotham Black"),
+  local("Gotham-Black"),
+  url("assets/fonts/GOTHAM/Gotham-Black.otf");
+}
+
+@font-face {
+  font-family: 'American medium';
+  src: local("American medium"),
+  local("American-medium"),
+  url("assets/fonts/american_type/American_Type_Medium.otf");
+}
+
+@font-face {
+  font-family: 'American bold';
+  src: local("American bold"),
+  local("American-bold"),
+  url("assets/fonts/american_type/American_Type_Bold.ttf");
+}
+
+body{
+  color: var(--grey) !important;
+  font-family: 'Gotham Light';
+  padding-top: 80px !important;
+}
+
+@media (max-width : 766px) {
+  body{
+    padding-top: 100px !important;
+  }
+}
+
+@media (max-width : 475px) {
+  body{
+    padding-top: 100px !important;
+  }
+}
+
+h1, h2, h4, b{
+  font-family: 'Gotham Bold';
+}
+//--------------------------menu>------------------------------
+.text-italic, i{
+  font-family: 'Gotham Italic';
+}
+.text-italic-bold{
+  font-family: 'Gotham Italic bold';
+}
+.text-black{
+  font-family: 'Gotham Black';
+  color: var(--grey) !important;
+}
+.text-bold, b{
+  font-family: 'Gotham Bold';
+}
+.text-american-bold{
+  font-family: 'American bold';
+}
+.text-american-medium{
+  font-family: 'American medium';
+}
+
+
+.bg-beige1{
+  background-color: var(--beige);
+}
+.bg-beige2{
+  background-color: var(--beige2);
+}
+.bg-success{
+  background-color: var(--verde-amate) !important;
+}
+.bg-success-light{
+  background-color: var(--verde-amate-light);
+}
+.bg-transparent{
+  background-color: rgba(255,255,255,.8) !important;
+}
+.bg-white{
+  background-color: #fff;
+}
+.text-30{
+  font-size: 20px !important;
+}
+.text-success{
+  color: var(--verde-amate) !important;
+}
+.text-danger{
+  color: var(--rojo-amate) !important;
+}
+.circle{
+  border-radius: 100%;
+  width: 200px;
+  padding-left: 7px;
+  padding-right: 7px;
+  position: absolute;
+  margin-left: -200px;
+  margin-top: -24px;
+}
+h2{
+  font-weight: bold;
+}
+a{
+  text-decoration: none !important;
+}
+.w-full{
+  width: 100% !important;
+}
+.form-control{
+  border: none !important;
+  background-color: var(--bg-form-control);
+  border-radius: 0;
+}
+.btn{
+  border-radius: 0%;
+}
+.btn-light{
+  background-color: #fff;
+  border: solid 2px var(--verde-amate);
+  color: var(--verde-amate);
+  font-weight: bold;
+  font-family: 'Gotham Bold';
+}
+.btn-success{
+  background-color: var(--verde-amate);
+}
+.btn-beige{
+  background-color: var(--beige2);
+}
+.float-right{
+  float: right;
+}
+.border100{
+  border-radius: 100%;
+}
+.border6{
+  border-radius: 6px;
+}
+.inline-block{
+  display: inline-block;
+}
+.p-absolute{
+  position: absolute;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] { -moz-appearance:textfield; }
+
+.border-none{
+  border: none !important;
+}
+
+.btn-group > button:hover {
+  background: none !important;
+}
+
+.number-container{
+  border: solid #aaa 1px;
+  font-size: 30px;
+  width: 200px;
+  margin: auto;
+  text-align: center;
+  background-color: #fff;
+}
+.btn-minor{
+  border-right: solid #aaa 1px;
+  padding-right: 16px;
+  display: inline-block;
+  cursor: pointer;
+}
+.btn-major{
+  border-left: solid #aaa 1px;
+  padding-left: 16px;
+  display: inline-block;
+  cursor: pointer;
+}
+.input-number{
+  border: none;
+  width: 100px;
+  text-align: center;
+}
+
+.text-grey{
+  color: var(--grey) !important;
+}
+
+
+/* Importing Bootstrap SCSS file. */
+//@import "~bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+//@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
